@@ -17,4 +17,4 @@ class TestCloseDetailsWindow():
         with allure.step("Закрытие окна описания ингредиента"):
             main_page.close_details_window()
         with allure.step("Проверка что окно описания закрыто"):
-            assert main_page.check_details_window_is_close
+            assert main_page.check_details_window_is_close()

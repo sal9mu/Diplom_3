@@ -24,7 +24,7 @@ class OrderPage(BasePage):
 
     @allure.step('Получить список активных заказов')
     def check_number_of_order(self):
-        self.get_page_text(ListOrderLocatores.order_in_line)
+        return self.get_page_text(ListOrderLocatores.order_in_line)
 
     @allure.step('Нажать на кнопку "Конструктор"')
     def click_on_constructor_button(self):

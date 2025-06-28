@@ -22,4 +22,4 @@ class TestTransitionOnConstructorButton():
         with allure.step("Ожидание появления названия страницы"):
             main_page.wait_for_page_logo()
         with allure.step("Проверка отображения названия страницы 'Соберите бургер'"):
-            assert main_page.check_page_label
+            assert main_page.check_page_label()

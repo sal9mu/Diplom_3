@@ -14,4 +14,4 @@ class TestCheckDetailsWindow():
         with allure.step("Нажатие на булочку"):
             main_page.click_on_bun_for_details()
         with allure.step("Проверка отображения окна с деталями ингредиента"):
-            assert main_page.check_details_window
+            assert main_page.check_details_window()

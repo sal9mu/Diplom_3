@@ -15,7 +15,7 @@ class MainPage(BasePage):
 
     @allure.step('Получение заголовка страницы')
     def check_page_label(self):
-        self.get_page_text(MainPageLocatores.create_burger_label)
+        return self.get_element_text(MainPageLocatores.create_burger_label)
 
     @allure.step('Скролл до раздела с соусами')
     def scroll_to_sauce(self):
@@ -31,21 +31,24 @@ class MainPage(BasePage):
 
     @allure.step('Перетащить булку в корзину')
     def drag_and_drop_buns(self):
-        source = self.driver.find_element(*MainPageLocatores.flur_buns)
-        target = self.driver.find_element(*MainPageLocatores.constructor_basket)
-        self.drag_and_drop_element(source, target)
+        self.drag_and_drop_element(
+            MainPageLocatores.flur_buns,
+            MainPageLocatores.constructor_basket
+        )
 
     @allure.step('Перетащить соус в корзину')
     def drag_and_drop_sauce(self):
-        source = self.driver.find_element(*MainPageLocatores.sauce_spicy_x)
-        target = self.driver.find_element(*MainPageLocatores.constructor_basket)
-        self.drag_and_drop_element(source, target)
+        self.drag_and_drop_element(
+            MainPageLocatores.sauce_spicy_x,
+            MainPageLocatores.constructor_basket
+        )
 
     @allure.step('Перетащить начинку в корзину')
     def drag_and_drop_filling(self):
-        source = self.driver.find_element(*MainPageLocatores.beef_meteorite)
-        target = self.driver.find_element(*MainPageLocatores.constructor_basket)
-        self.drag_and_drop_element(source, target)
+        self.drag_and_drop_element(
+            MainPageLocatores.beef_meteorite,
+            MainPageLocatores.constructor_basket
+        )
 
     @allure.step('Открыть всплывающее окно с деталями')
     def click_on_bun_for_details(self):
@@ -53,7 +56,7 @@ class MainPage(BasePage):
 
     @allure.step('Проверка отображения окна с деталями')
     def check_details_window(self):
-        self.check_displaying_of_element(MainPageLocatores.ingredients_details)
+        return self.check_displaying_of_element(MainPageLocatores.ingredients_details)
 
     @allure.step('Закрыть всплывающее окно с деталями')
     def close_details_window(self):
@@ -61,7 +64,7 @@ class MainPage(BasePage):
 
     @allure.step('Проверка что всплывающее окно с деталями закрыто')
     def check_details_window_is_close(self):
-        self.wait_for_element_hidden(MainPageLocatores.ingredients_details)
+        return self.wait_for_element_hidden(MainPageLocatores.ingredients_details)
 
     @allure.step('Нажать на кнопку "Лента заказов"')
     def click_on_list_an_order_button(self):
@@ -77,12 +80,12 @@ class MainPage(BasePage):
 
     @allure.step('Подождать появления счетчика ингредиента')
     def wait_for_count_of_ingredients(self):
-        self.wait_visibility_of_element(MainPageLocatores.ingredient_indicator)
+        self.wait_visibility_of_element(MainPageLocatores.ingredient_counter)
 
     @allure.step('Получить текущее значение счетчика')
     def get_ingredient_counter(self):
-        counter = self.driver.find_element(*MainPageLocatores.ingredient_indicator)
-        return int(counter.text)
+        counter = self.get_element_text(MainPageLocatores.ingredient_counter)
+        return int(counter)
 
     @allure.step('Ожидание окна успешного заказа')
     def wait_for_successful_order_window(self):
@@ -108,5 +111,6 @@ class MainPage(BasePage):
     def wait_for_login_button(self):
         self.wait_element_to_be_clickable(MainPageLocatores.login_account_button)
 
+    @allure.step('Подождать пока кнопка "Лист заказов" будет доступна')
     def wait_for_button_list_of_order_is_clickable(self):
         self.wait_element_to_be_clickable(MainPageLocatores.list_an_order_button)

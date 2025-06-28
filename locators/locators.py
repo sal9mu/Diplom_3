@@ -8,7 +8,7 @@ class MainPageLocatores:
     list_an_order_button = (By.XPATH, "//a[@class='AppHeader_header__link__3D_hX' and @href='/feed']") # Кнопка Лента заказов
     ingredients_details = (By.XPATH, "//div[@class='Modal_modal__contentBox__sCy8X pt-10 pb-15']") # Окно описания ингредиента
     close_ing_details_button = (By.XPATH, "//button[@class='Modal_modal__close_modified__3V5XS Modal_modal__close__TnseK']") # Кнопка закрытия описания ингредиента
-    ingredient_indicator = (By.XPATH, "//p[@class='counter_counter__num__3nue1']") # Счетчик ингредиента
+    ingredient_counter = (By.XPATH, "//p[@class='counter_counter__num__3nue1']") # Счетчик ингредиента
     constructor_basket = (By.CSS_SELECTOR, "ul[class*='BurgerConstructor_basket__list__l9dp_']") # Корзина заказа
     make_an_order_button = (By.XPATH, "//button[text() = 'Оформить заказ']")  # кнопка Оформления заказа
     overlay = (By.XPATH, "//div[contains(@class, 'Modal_modal_overlay__x2ZCr')]/parent::div") # Прогрузка страницы

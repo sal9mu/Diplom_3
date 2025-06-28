@@ -27,8 +27,8 @@ def login(driver):
     login_page = LoginPage(driver)
     main_page.wait_for_login_button()
     main_page.click_on_login_button()
-    login_page.email_input()
-    login_page.password_input()
+    login_page.email_input(UserData.email)
+    login_page.password_input(UserData.password)
     login_page.wait_login_button_to_be_clickable()
     login_page.click_login_button()
     return driver
